@@ -1,0 +1,285 @@
+/* Modern Add Todo Component Styles */
+
+.add-todo-container {
+  width: 100%;
+}
+
+.add-todo-form {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+/* Quick Add Section */
+.quick-add-section {
+  padding: 16px;
+}
+
+.quick-add-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  padding: 12px 16px;
+  transition: var(--transition);
+}
+
+.quick-add-input:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+  background-color: var(--surface-color);
+}
+
+.input-icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.quick-add-input:focus-within .input-icon {
+  color: var(--primary-color);
+}
+
+.main-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  padding: 0;
+  line-height: 1.4;
+}
+
+.main-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.add-btn:not(:disabled):hover,
+.add-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Expanded Form */
+.expanded-form {
+  border-top: 1px solid var(--border-color);
+  padding: 20px;
+  background-color: var(--background-primary);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.expanded-form.visible {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row:last-of-type {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.form-label svg {
+  opacity: 0.7;
+}
+
+.description-input {
+  resize: vertical;
+  min-height: 60px;
+  font-family: inherit;
+}
+
+.description-input:focus {
+  min-height: 80px;
+}
+
+/* Due Date Options */
+.due-date-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.date-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  border-radius: var(--radius-small);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.date-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.date-btn.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.form-actions .btn {
+  min-width: 100px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  padding: 8px 16px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-tertiary);
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: var(--radius-small);
+  transition: var(--transition);
+}
+
+.quick-action-btn:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quick-add-input {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  
+  .main-input {
+    font-size: 0.875rem;
+  }
+  
+  .expanded-form {
+    padding: 16px;
+  }
+  
+  .form-row:last-of-type {
+    grid-template-columns: 1fr;
+  }
+  
+  .due-date-options {
+    justify-content: stretch;
+  }
+  
+  .date-btn {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-add-section {
+    padding: 12px;
+  }
+  
+  .quick-add-input {
+    padding: 8px 12px;
+  }
+  
+  .expanded-form {
+    padding: 12px;
+  }
+  
+  .form-actions {
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.expanded-form.visible {
+  animation: slideDown 0.3s ease-out;
+}
